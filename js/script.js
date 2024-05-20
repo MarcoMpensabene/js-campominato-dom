@@ -30,39 +30,24 @@ buttonEl.addEventListener("click"  , function() {
     },{ once: true });
 }} );
 
-const bomb = [];
-function filledArray(array , number , max ){
-    for (let i = 1 ; i <= 16 ; i++){
-        number = getRandomNumber(1 , max);
-        array.push(number)
-    }
-}
-
 function getRandomNumber(min , max){
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 let randomNumb = getRandomNumber(1 , grandezza);
-console.log(randomNumb)
 
-function getRandomBomb(repeatedNumbers , min , max){
-    if(max - min > repeatedNumbers.length){
-        return false;
-    }
-    let randomNumber;
-    let isBomb = false;
-    while(!isBomb){
-        randomNumber = getRandomNumber(min , max);
-        if( repeatedNumbers.includes(randomNumber) !== false){
-            isBomb = true;
+
+function getRandomBomb(arraylength, min, max) {
+    const arrayBomb = [];
+    while (arrayBomb.length < arraylength ) {
+        const randomNum = getRandomNumber(min, max);
+        if (!arrayBomb.includes(randomNum)) {
+            arrayBomb.push(randomNum);
         }
     }
-    return randomNumber;
+    return arrayBomb;
 }
-let randomBomb = getRandomBomb(bomb , 1 , grandezza)
 
+let getBomb = getRandomBomb(16 , 1 , grandezza)
 
-console.log(randomBomb)
-
-const filled = filledArray(bomb , randomBomb , grandezza)
-console.log(bomb)
+console.log(getBomb)
