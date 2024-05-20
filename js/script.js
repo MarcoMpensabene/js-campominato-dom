@@ -26,9 +26,43 @@ buttonEl.addEventListener("click"  , function() {
         divEl.addEventListener("click" , function() {
             divEl.classList.add("active");
             numbers.classList.add("numbers");
-            console.log(i)
-
+            console.log(i);
     },{ once: true });
 }} );
 
+const bomb = [];
+function filledArray(array , number , max ){
+    for (let i = 1 ; i <= 16 ; i++){
+        number = getRandomNumber(1 , max);
+        array.push(number)
+    }
+}
 
+function getRandomNumber(min , max){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let randomNumb = getRandomNumber(1 , grandezza);
+console.log(randomNumb)
+
+function getRandomBomb(repeatedNumbers , min , max){
+    if(max - min > repeatedNumbers.length){
+        return false;
+    }
+    let randomNumber;
+    let isBomb = false;
+    while(!isBomb){
+        randomNumber = getRandomNumber(min , max);
+        if( repeatedNumbers.includes(randomNumber) !== false){
+            isBomb = true;
+        }
+    }
+    return randomNumber;
+}
+let randomBomb = getRandomBomb(bomb , 1 , grandezza)
+
+
+console.log(randomBomb)
+
+const filled = filledArray(bomb , randomBomb , grandezza)
+console.log(bomb)

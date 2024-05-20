@@ -67,3 +67,7 @@ span{
 span.numbers{
     color: magenta
 }
+
+.bomb{
+    background-color: red;
+}
