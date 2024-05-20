@@ -28,6 +28,11 @@ buttonEl.addEventListener("click"  , function() {
         divEl.addEventListener("click" , function() {
             if(getBomb.includes(i)){
                 divEl.classList.add("bomb")
+                let cells = document.getElementsByClassName("square")
+                for(let i = 0 ; i <  getBomb.length ; i++){
+                    let num = getBomb[i] - 1 ;
+                    cells[num].classList.add("bomb")
+                }
             }else {
             divEl.classList.add("active");
             numbers.classList.add("numbers");
@@ -44,7 +49,7 @@ function getRandomNumber(min , max){
 function getRandomBomb(arraylength, min, max) {
     const arrayBomb = [];
     while (arrayBomb.length < arraylength ) {
-        const randomNum = getRandomNumber(min, max);
+        let randomNum = getRandomNumber(min, max);
         if (!arrayBomb.includes(randomNum)) {
             arrayBomb.push(randomNum);
         }
