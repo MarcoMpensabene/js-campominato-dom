@@ -8,6 +8,8 @@ console.log(selectEl.value);
 buttonEl.addEventListener("click"  , function() {
     containerEl.innerHTML = "";
     let grandezza = selectEl.value;
+    let randomNumb = getRandomNumber(1 , grandezza);
+    let getBomb = getRandomBomb(16 , 1 , grandezza)
     console.log(grandezza.value);
     for (let i = 1 ; i <= grandezza ; i++){
         const divEl = document.createElement("div");
@@ -24,17 +26,19 @@ buttonEl.addEventListener("click"  , function() {
         divEl.appendChild(numbers);
         numbers.append(i);
         divEl.addEventListener("click" , function() {
+            if(getBomb.includes(i)){
+                divEl.classList.add("bomb")
+            }else {
             divEl.classList.add("active");
             numbers.classList.add("numbers");
             console.log(i);
+        }
     },{ once: true });
 }} );
 
 function getRandomNumber(min , max){
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-let randomNumb = getRandomNumber(1 , grandezza);
 
 
 function getRandomBomb(arraylength, min, max) {
@@ -48,6 +52,3 @@ function getRandomBomb(arraylength, min, max) {
     return arrayBomb;
 }
 
-let getBomb = getRandomBomb(16 , 1 , grandezza)
-
-console.log(getBomb)
