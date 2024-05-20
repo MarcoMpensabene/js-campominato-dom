@@ -44,3 +44,9 @@ SECONDA PARTE ESERCIZIO CAMPO MINATO:
 > Scriviamo prima cosa vogliamo fare passo passo in italiano, dividiamo il lavoro in micro problemi.
 > Ad esempio: Di cosa ho bisogno per generare i numeri? Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 > Le validazioni e i controlli possiamo farli anche in un secondo momento.
+
+1) Per prima cosa mi creo nel css una nuova classe bomba che cambierà il background in rosso quando il numero cliccato risulta in una bomba
+2) Per far si che le bombe vengano piazzete ho bisogno di una funzione che generi 16 numeri randomici che non si devono ripetere che vadano dall'inizio alla fine della difficoltà selezionata (Ciclo while dovrebbe venirci in aiuto visto che non sappiamo quante volte il ciclo si dovrà ripetere considerando che i numeri devono essere randomici ).
+3) Se abbiamo generato i numeri correttamente possiamo far si di aggiungere ad essi la classe bomba creata prima in css
+4) Dopo aver generato le bombe dobbiamo far si che se venisse cliccata una bomba il gioco finirebbe e ci deve venir stampata una stringa con il numero di volte che l'utente ha cliccato + il messaggio di sconfitta 
+5) Se invece l'utente riesce ad evitare  tutte le bombe(cioè quando termina il numero di celle non bombe cliccabili che sarà uguale al numero delle celle - le bombe) ho bisogno di un messaggio di vittoria sempre seguito dai click 
