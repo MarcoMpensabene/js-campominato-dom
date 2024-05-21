@@ -23,6 +23,12 @@ div.input{
 }
 footer div{
     text-align: center;
+    padding-left: 3rem;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    
 }
 
 section.container{

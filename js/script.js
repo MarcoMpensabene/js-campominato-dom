@@ -4,9 +4,11 @@ console.log(buttonEl);
 const containerEl = document.querySelector("section.container");
 const selectEl = document.querySelector("header div select");
 let grandezza = selectEl.value;
+let clicked = document.getElementById("gameover")
 console.log(selectEl.value);
 buttonEl.addEventListener("click"  , function() {
     containerEl.innerHTML = "";
+    let count = 0;
     let grandezza = selectEl.value;
     let randomNumb = getRandomNumber(1 , grandezza);
     let getBomb = getRandomBomb(16 , 1 , grandezza)
@@ -26,14 +28,16 @@ buttonEl.addEventListener("click"  , function() {
         divEl.appendChild(numbers);
         numbers.append(i);
         divEl.addEventListener("click" , function() {
-            if(getBomb.includes(i)){
-                divEl.classList.add("bomb")
-                let cells = document.getElementsByClassName("square")
-                for(let i = 0 ; i <  getBomb.length ; i++){
-                    let num = getBomb[i] - 1 ;
-                    cells[num].classList.add("bomb")
-                }
-            }else {
+        count ++;
+        clicked.innerHTML = count;
+        if(getBomb.includes(i)){
+            divEl.classList.add("bomb");
+            let cells = document.getElementsByClassName("square");
+            for(let i = 0 ; i <  getBomb.length ; i++){
+                let num = getBomb[i] - 1 ;
+                cells[num].classList.add("bomb");
+            }
+        }else {
             divEl.classList.add("active");
             numbers.classList.add("numbers");
             console.log(i);
@@ -56,4 +60,3 @@ function getRandomBomb(arraylength, min, max) {
     }
     return arrayBomb;
 }
-
